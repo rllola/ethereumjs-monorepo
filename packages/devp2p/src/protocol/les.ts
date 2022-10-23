@@ -20,9 +20,6 @@ export class LES extends Protocol {
   constructor(version: number, peer: Peer, send: SendMethod) {
     super(peer, send, EthProtocol.LES, version, LES.MESSAGE_CODES)
 
-    this._statusTimeoutId = setTimeout(() => {
-      this._peer.disconnect(DISCONNECT_REASONS.TIMEOUT)
-    }, ms('5s'))
   }
 
   static les2 = { name: 'les', version: 2, length: 21, constructor: LES }
